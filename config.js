@@ -22,7 +22,7 @@ const CONFIG = {
   // ----------------------------------------------------------------------
   contact: {
     whatsapp: {
-      number: "573115054708",
+      number: "573197438210",
       defaultMessage: "Me encantaría participar",
       ctaText: "¡Acepta el reto!"
     },
