@@ -90,13 +90,79 @@ const BLOG_POSTS = [
     id: 6,
     title: "Capacitación docente: Metodologías activas con Arduino",
     slug: "capacitacion-docente-metodologias-activas-arduino",
-    date: "2026-04-01",
+    date: "2025-11-01",
     author: "Equipo PhyMaC",
     category: "Capacitación",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     summary: "Programa de formación para docentes que desean implementar metodologías activas y aprendizaje por proyectos en sus aulas. Herramientas prácticas y recursos listos para usar.",
     content: `
       <p>En construcción</p>
+    `
+  },
+  {
+    id: 7,
+    title: "¡Acción y reacción en el Rosal! Un reto de ingeniería con la fundación CreSiendo",
+    slug: "accion-reaccion-rosal-fundacion-cresiendo",
+    date: "2026-02-05",
+    author: "Equipo PhyMaC",
+    category: "Proyectos",
+    image: "imagenes/img1.jpeg",
+    summary: "Experiencia educativa en la vereda El Rosal donde niños y jóvenes construyeron cohetes propulsados por aire para comprender la tercera ley de Newton de forma práctica y colaborativa.",
+    content: `
+      <p>En PhyMaC explicamos la ciencia más allá de un tablero; la descubrimos construyendo. Recientemente, aceptamos un nuevo desafío: llevar nuestro laboratorio a la fundación CreSiendo en la vereda El Rosal, donde disfrutamos del ingenio de niños y jóvenes que movieron un objeto aprovechando el aire.</p>
+      
+      <h3>El reto: cohetes propulsados por aire (Newton en la vida real)</h3>
+      <p>Para entender la tercera ley de Newton (acción y reacción), hay que verla funcionar. La actividad principal consistió en la construcción de un artefacto sencillo pero poderoso: un cohete impulsado por aire.</p>
+      
+      <p>Los participantes, con edades entre los ocho y quince años, tuvieron que manipular materiales como cintas, palillos y globos. Durante la actividad reflexionaron sobre:</p>
+      <ul>
+        <li>¿Qué voy a hacer?</li>
+        <li>¿Qué necesito?</li>
+        <li>¿Cómo aplico lo aprendido?</li>
+      </ul>
+      
+      <p>Este enfoque hace parte de nuestro ciclo STEM de tres fases, diseñado para promover un aprendizaje práctico donde la experimentación es el centro del proceso.</p>
+      
+      <h3>Ingenio colaborativo: "makers" apoyando a "makers"</h3>
+      <p>La jornada presentó desafíos reales. Para los niños más pequeños (8-10 años), la manipulación de los materiales y la lógica del cohete resultaron ser un reto exigente. Sin embargo, aquí es donde brilla el aprendizaje colaborativo.</p>
+      
+      <p>Dos jóvenes de quince años asumieron el rol de monitores, guiando a sus pares más pequeños y ayudándoles a resolver problemas técnicos sobre la marcha. Gracias a este apoyo y al acompañamiento de nuestro equipo facilitador, todos lograron involucrarse y ver sus prototipos en acción.</p>
+      
+      <h3>Así luce la ciencia en acción</h3>
+      <div style="text-align: center; margin: 2rem 0;">
+        <img src="imagenes/img2.jpeg" alt="Niño construyendo cohete propulsado por aire" style="max-width: 500px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem; font-style: italic;">Un participante ensambla su cohete de globo con ayuda de un facilitador</p>
+      </div>
+      
+      <h3>Resultados y proyección</h3>
+      <p>Más allá de la diversión, buscábamos que los niños reconocieran la física detrás del juego: la relación entre la dirección del aire expulsado y el movimiento del cohete. Se observó una comprensión inicial del fenómeno, validando que la construcción de artefactos es una estrategia efectiva para aprender ciencia.</p>
+      
+      <p>Para continuar el aprendizaje, dejamos planteado el reto llamado, <strong>El cohete dirigido</strong>. En casa los niños diseñarán un nuevo cohete, lo dibujarán y explicarán porque llegará más alto.</p>
+      
+      <p style="text-align: center; margin: 1.5rem 0;">
+        <a href="https://drive.google.com/file/d/1ZWCNQd9gN3YVZn8MV01qZty2YMOFh4xJ/view?usp=sharing" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold transition-all"
+           style="background-color: #2962FF; color: white; text-decoration: none; box-shadow: 0 3px 0 #0039CB;"
+           onmouseover="this.style.backgroundColor='#768FFF'"
+           onmouseout="this.style.backgroundColor='#2962FF'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          Descargar guía del reto: El Cohete Dirigido (PDF)
+        </a>
+      </p>
+      
+      <h3>Agradecimientos</h3>
+      <p>Agradecemos a la Fundación CreSiendo por abrirnos sus puertas y confiar en propuestas educativas que fomentan el aprendizaje activo. Fue una jornada de ciencia viva, donde demostramos una vez más que aprender ciencia es explorar, preguntar, crear y compartir.</p>
+      
+      <h3>¿Listo para llevar el enfoque Maker a tu comunidad?</h3>
+      <p>¿Te gustaría que PhyMaC diseñe un reto STEM a la medida para tu institución o grupo? Conversemos sobre cómo transformar la teoría en artefactos tangibles.</p>
     `
   }
 ];
