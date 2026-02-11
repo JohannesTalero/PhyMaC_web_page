@@ -40,7 +40,8 @@ function renderBlogPosts(posts = []) {
       'Proyectos': { bg: '#E8F5E9', text: '#2E7D32' },
       'Programas': { bg: '#FFF3E0', text: '#FF6D00' },
       'Publicaciones': { bg: '#E3F2FD', text: '#1565C0' },
-      'Capacitación': { bg: '#FCE4EC', text: '#C2185B' }
+      'Capacitación': { bg: '#FCE4EC', text: '#C2185B' },
+      'Otros': { bg: '#F3E5F5', text: '#7B1FA2' }
     };
     const categoryStyle = categoryColors[post.category] || { bg: '#EEEEEE', text: '#212121' };
 

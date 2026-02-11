@@ -171,8 +171,8 @@ const BLOG_POSTS = [
     slug: "ciencia-sello-mujer-perspectivas-desafios-tecnologia",
     date: "2026-02-11",
     author: "Equipo PhyMaC",
-    category: "Proyectos",
-    image: "https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    category: "Otros",
+    image: "https://img.youtube.com/vi/pIY0BgIwMIk/maxresdefault.jpg",
     summary: "En el Día Internacional de la Mujer y la Niña en la Ciencia, compartimos las experiencias de mujeres líderes que están transformando el panorama científico en Colombia.",
     content: `
       <p>En PhyMaC celebramos la ciencia que nace de la curiosidad y se fortalece con la persistencia. En el marco del <em>Día Internacional de la Mujer y la Niña en la Ciencia</em>, compartimos las experiencias de mujeres líderes que están transformando el panorama científico en Colombia.</p>
@@ -187,18 +187,34 @@ const BLOG_POSTS = [
 
       <h3>Perspectivas en video</h3>
       <p>Te invitamos a conocer estas historias de viva voz y a descubrir por qué "sí se puede" hacer carrera en las ciencias básicas e ingeniería:</p>
-      <ul>
-        <li>
-          <a href="https://www.youtube.com/watch?v=pIY0BgIwMIk" target="_blank" rel="noopener noreferrer">
-            <strong>Ver video: Perspectivas y desafíos (Completo)</strong>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.youtube.com/shorts/u_IN1UNdhNI" target="_blank" rel="noopener noreferrer">
-            <strong>Ver video: Testimonio Mari Verdugo (Short)</strong>
-          </a>
-        </li>
-      </ul>
+
+      <div style="text-align: center; margin: 2rem 0;">
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+          <iframe 
+            src="https://www.youtube.com/embed/pIY0BgIwMIk" 
+            title="Perspectivas y desafíos en la tecnología - Completo"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+          </iframe>
+        </div>
+        <p style="font-size: 0.9rem; color: #666; margin-top: 0.75rem; font-style: italic;">Perspectivas y desafíos en la tecnología — Video completo</p>
+      </div>
+
+      <div style="text-align: center; margin: 2rem auto;">
+        <div style="position: relative; padding-bottom: 177.78%; height: 0; overflow: hidden; max-width: 360px; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+          <iframe 
+            src="https://www.youtube.com/embed/u_IN1UNdhNI" 
+            title="Testimonio Mari Verdugo - Short"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+          </iframe>
+        </div>
+        <p style="font-size: 0.9rem; color: #666; margin-top: 0.75rem; font-style: italic;">Testimonio Mari Verdugo — Short</p>
+      </div>
 
       <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
 
