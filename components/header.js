@@ -31,7 +31,7 @@ function createHeader() {
         <div class="flex justify-between h-20 items-center">
           
           <!-- ZONA DEL LOGO -->
-          <a href="index.html" class="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
+          <a href="/" class="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
             
             <!-- CONTENEDOR PARA LA IMAGEN DEL LOGO -->
             <div class="h-12 w-12 flex items-center justify-center relative transition-all">
@@ -54,12 +54,8 @@ function createHeader() {
           <!-- MENÚ DE ESCRITORIO -->
           <div class="hidden md:flex space-x-6 items-center text-sm font-semibold font-body">
             ${menuItems.map(item => {
-              let href = item.href;
-              // Si el href empieza con #, agregar index.html antes para que funcione desde cualquier página
-              if (href.startsWith('#') && !href.startsWith('index.html')) {
-                href = 'index.html' + href;
-              }
-              return `<a href="${href}" class="transition menu-link hover:text-phymac-orange" style="color: #484848;" data-href="${item.href}">${item.text}</a>`;
+              const href = item.href;
+              return `<a href="${href}" class="transition menu-link hover:text-phymac-orange" style="color: #484848;">${item.text}</a>`;
             }).join('')}
             <a 
               href="${whatsappUrl}"
@@ -97,12 +93,8 @@ function createHeader() {
       <!-- MENÚ MÓVIL DESPLEGABLE -->
       <div id="mobile-menu" class="hidden md:hidden bg-white border-t-2 p-4 space-y-2 text-center" style="border-color: #E0E0E0;">
         ${menuItems.map(item => {
-          let href = item.href;
-          // Si el href empieza con #, agregar index.html antes para que funcione desde cualquier página
-          if (href.startsWith('#') && !href.startsWith('index.html')) {
-            href = 'index.html' + href;
-          }
-          return `<a href="${href}" class="block py-3 font-display font-bold menu-link transition-colors" style="color: #212121;" data-href="${item.href}">${item.text}</a>`;
+          const href = item.href;
+          return `<a href="${href}" class="block py-3 font-display font-bold menu-link transition-colors" style="color: #212121;">${item.text}</a>`;
         }).join('')}
         <a 
           href="${whatsappUrl}" 
@@ -180,14 +172,4 @@ function initHeaderBehavior() {
     }
   }
 
-  // Ajustar enlaces del menú según la página actual
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  const menuLinks = document.querySelectorAll('.menu-link');
-  
-  menuLinks.forEach(link => {
-    const originalHref = link.getAttribute('data-href');
-    if (originalHref && originalHref.startsWith('#') && currentPage !== 'index.html') {
-      link.href = 'index.html' + originalHref;
-    }
-  });
 }

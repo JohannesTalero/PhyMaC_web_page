@@ -162,7 +162,7 @@
           <h2 class="font-display text-3xl md:text-4xl font-extrabold mb-2" style="color: #212121;">Así luce la ciencia en acción.</h2>
         </div>
         <a 
-          href="blog.html"
+          href="blog/"
           class="hidden md:flex items-center mt-4 md:mt-0 text-sm transition-all font-display font-bold px-4 py-2 rounded-full"
           style="color: #2962FF; border: 2px solid #2962FF;"
           onmouseover="this.style.backgroundColor='#2962FF'; this.style.color='white';"
@@ -189,7 +189,6 @@
   <script src="components/header.js"></script>
   <script src="components/footer.js"></script>
   <script src="blog-data.js"></script>
-  <script src="blog.js"></script>
   <script src="main.js"></script>
   
   <!-- Script para cargar proyectos dinámicamente -->
@@ -200,28 +199,28 @@
         const proyectosContainer = document.getElementById('proyectos-container');
         if (proyectosContainer) {
           proyectosContainer.innerHTML = CONFIG.proyectos.map(proyecto => {
-            // Buscar el artículo del blog relacionado
-            let blogLink = '#';
+            // Buscar el artículo del blog relacionado para construir URL
+            let url = null;
             let linkText = 'Ver más';
-            let linkAction = '';
             
             if (typeof BLOG_POSTS !== 'undefined' && proyecto.blogId) {
               const blogPost = BLOG_POSTS.find(post => post.id === proyecto.blogId);
-              if (blogPost) {
-                // Crear función para abrir el artículo del blog
-                linkAction = `onclick="if(typeof openBlogPost === 'function') { openBlogPost(${blogPost.id}); } else { window.location.href='blog.html'; }"`;
+              if (blogPost && blogPost.slug) {
+                url = `blog/${blogPost.slug}/`;
                 linkText = 'Leer artículo';
               }
             }
             
             // Si no hay blog relacionado, usar WhatsApp como fallback
-            if (!linkAction) {
+            if (!url) {
               const whatsappUrl = `https://wa.me/${CONFIG.contact.whatsapp.number}?text=${encodeURIComponent(`Me interesa saber más sobre: ${proyecto.title}`)}`;
-              linkAction = `onclick="window.open('${whatsappUrl}', '_blank')"`;
+              url = whatsappUrl;
             }
             
+            const isWhatsApp = url.startsWith('https://wa.me/');
+            
             return `
-              <div class="group relative rounded-2xl overflow-hidden cursor-pointer transition-all transform hover:-translate-y-2 hover:shadow-xl" style="background: white; border: 2px solid #E0E0E0;" ${linkAction}>
+              <a href="${url}" ${isWhatsApp ? 'target="_blank" rel="noopener noreferrer"' : ''} class="group block relative rounded-2xl overflow-hidden cursor-pointer transition-all transform hover:-translate-y-2 hover:shadow-xl" style="background: white; border: 2px solid #E0E0E0;">
                 <!-- Imagen -->
                 <div class="aspect-[16/10] overflow-hidden">
                   <img 
@@ -246,7 +245,7 @@
                     </svg>
                   </div>
                 </div>
-              </div>
+              </a>
             `;
           }).join('');
         }

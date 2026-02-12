@@ -1,0 +1,27 @@
+{
+  "name": "phymac_web_page",
+  "version": "1.0.0",
+  "description": "Sitio web institucional de PhyMaC, una plataforma educativa enfocada en aprendizaje STEM por retos. El sitio está diseñado con una arquitectura modular y un sistema de configuración centralizado que permite personalizar todo el contenido desde un único archivo.",
+  "main": "main.js",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve --port=8080",
+    "preview": "npm run build && npx serve _site"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohannesTalero/PhyMaC_web_page.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JohannesTalero/PhyMaC_web_page/issues"
+  },
+  "homepage": "https://github.com/JohannesTalero/PhyMaC_web_page#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "markdown-it": "^14.1.1"
+  }
+}

@@ -28,6 +28,8 @@ PhyMaC es una iniciativa educativa que promueve el aprendizaje de ciencia, tecno
 - **HTML5**: Estructura semántica
 - **TailwindCSS**: Framework CSS utility-first (via CDN)
 - **JavaScript (Vanilla)**: Sin dependencias externas
+- **Eleventy (11ty)**: Generador de sitios estáticos para el blog
+- **Markdown**: Contenido de los artículos del blog
 - **Formspree**: Manejo de formularios
 - **Google Drive**: Almacenamiento de imágenes
 
@@ -35,21 +37,36 @@ PhyMaC es una iniciativa educativa que promueve el aprendizaje de ciencia, tecno
 
 ```
 PhyMaC_web_page/
-├── config.js              # ⚙️ Panel de control centralizado
-├── index.html             # Página principal
-├── blog.html              # Página del blog
-├── servicios.html         # Página de servicios
-├── publicaciones.html     # Página de publicaciones
-├── main.js                # Script principal de inicialización
-├── blog-data.js           # Datos de los artículos del blog
-├── blog.js                # Lógica del blog
+├── config.js                 # ⚙️ Panel de control centralizado
+├── index.html                # Página principal (passthrough)
+├── servicios.html            # Página de servicios (passthrough)
+├── publicaciones.html        # Página de publicaciones (passthrough)
+├── main.js                   # Script principal de inicialización
+├── blog-data.js              # Metadatos ligeros para proyectos (IDs/slug)
 ├── components/
-│   ├── header.js          # Componente del header/navegación
-│   └── footer.js          # Componente del footer
-├── imagenes/              # Imágenes locales (libros, etc.)
+│   ├── header.js             # Componente del header/navegación
+│   └── footer.js             # Componente del footer
+├── imagenes/                 # Imágenes locales
 │   ├── ElMonoCH.png
 │   └── Ch_Libro_Verde.png
-└── README.md              # Este archivo
+├── src/                      # 📦 Fuente de Eleventy
+│   ├── blog.njk              # Listado del blog generado con Eleventy
+│   ├── posts/                # Artículos del blog en Markdown
+│   │   ├── aprendizaje-por-retos-metodologia-stem.md
+│   │   ├── propulsion-cohetes-leyes-newton.md
+│   │   ├── gimnasia-cerebral-stem-adultos-mayores.md
+│   │   ├── alegoria-mono-movimiento-proyectiles.md
+│   │   ├── capacitacion-docente-metodologias-activas-arduino.md
+│   │   ├── accion-reaccion-rosal-fundacion-cresiendo.md
+│   │   └── ciencia-sello-mujer-perspectivas-desafios-tecnologia.md
+│   ├── _includes/
+│   │   └── layouts/
+│   │       └── post.njk      # Layout base de los artículos del blog
+│   └── _data/
+│       └── site.json         # Datos globales para Eleventy
+├── .eleventy.js              # Configuración de Eleventy
+├── package.json              # Dependencias y scripts de npm
+└── README.md                 # Este archivo
 ```
 
 ## ⚙️ Configuración
@@ -126,35 +143,35 @@ Para personalizar el sitio, simplemente edita `config.js`:
 
 ### Requisitos
 
-No se requieren dependencias ni instalación. El sitio funciona completamente con archivos estáticos.
+- Node.js 18+ (recomendado)
 
-### Ejecución Local
+### Ejecución Local (con Eleventy)
 
 1. Clona o descarga el repositorio
-2. Abre `index.html` en tu navegador
-3. O usa un servidor local:
+2. Instala dependencias:
 
 ```bash
-# Con Python 3
-python -m http.server 8000
-
-# Con Node.js (http-server)
-npx http-server
-
-# Con PHP
-php -S localhost:8000
+npm install
 ```
 
-Luego visita `http://localhost:8000` en tu navegador.
+3. Ejecuta el servidor de desarrollo de Eleventy:
 
-### Despliegue
+```bash
+npm run serve
+```
 
-El sitio puede desplegarse en cualquier servicio de hosting estático:
+4. Abre en tu navegador:
 
-- **Netlify**: Arrastra y suelta la carpeta
-- **Vercel**: Conecta el repositorio
-- **GitHub Pages**: Activa Pages en la configuración del repositorio
-- **Servidor tradicional**: Sube los archivos vía FTP
+- `http://localhost:8080/` → sitio completo
+- `http://localhost:8080/blog/` → listado del blog
+
+### Build para producción
+
+```bash
+npm run build
+```
+
+Esto genera el sitio estático en la carpeta `_site/`, listo para desplegarse en Netlify, Vercel, GitHub Pages o cualquier hosting estático.
 
 ## 📝 Páginas del Sitio
 
@@ -165,12 +182,11 @@ Página principal con:
 - Galería de proyectos destacados
 - Footer con formulario de contacto
 
-### `blog.html`
-Página del blog con:
-- Lista de artículos
-- Sistema de filtrado por categorías
-- Vista detallada de cada artículo
-- Relación con proyectos
+### `/blog/`
+Página del blog generada por Eleventy con:
+- Lista de artículos (extraídos de `src/posts/*.md`)
+- Sistema de filtrado por categorías (JavaScript del lado del cliente)
+- Enlaces a páginas individuales por artículo
 
 ### `servicios.html`
 Página de servicios que muestra:
@@ -229,14 +245,48 @@ El sitio usa TailwindCSS via CDN. Para personalizar estilos:
 
 ## 📚 Datos del Blog
 
-Los artículos del blog se gestionan en `blog-data.js`. Cada artículo incluye:
-- ID único
-- Título y subtítulo
-- Autor y fecha
-- Categoría
-- Contenido completo
-- Imagen destacada
-- Relación con proyectos (opcional)
+- El **contenido completo** de cada artículo se gestiona en archivos Markdown dentro de `src/posts/`, con frontmatter YAML (título, fecha, autor, categoría, imagen, resumen, slug, etc.).
+- `blog-data.js` se mantiene como fuente ligera de metadatos para vincular proyectos destacados de la página principal con los artículos del blog (IDs y slugs).
+
+### Agregar un nuevo artículo
+
+1. Crea un archivo en `src/posts/` con el slug deseado, por ejemplo:
+
+```markdown
+src/posts/mi-nuevo-articulo.md
+```
+
+2. Añade el frontmatter y el contenido:
+
+```markdown
+---
+layout: layouts/post.njk
+title: "Título del Artículo"
+date: 2026-03-15
+author: "Equipo PhyMaC"
+category: "Proyectos"
+image: "/imagenes/posts/mi-imagen.jpg"
+summary: "Breve descripción del artículo."
+slug: "mi-nuevo-articulo"
+permalink: "/blog/{{ slug }}/"
+---
+
+Contenido del artículo en texto plano con formato.
+
+## Subtítulo
+
+Párrafo normal con **negritas** y *cursivas*.
+
+{% youtube "VIDEO_ID", "Descripción del video" %}
+```
+
+3. Ejecuta:
+
+```bash
+npm run build
+```
+
+4. (Opcional) Si quieres vincular este artículo desde un proyecto en la home, añade una entrada en `CONFIG.proyectos` y usa el mismo `id`/`slug` en `blog-data.js`.
 
 ## 🔗 Enlaces Relacionados
 

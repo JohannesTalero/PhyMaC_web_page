@@ -12,7 +12,7 @@ const CONFIG = {
   // LOGO
   // ----------------------------------------------------------------------
   logo: {
-    url: "imagenes/logo.svg",
+    url: "/imagenes/logo.svg",
     alt: "PhyMaC Logo",
     fallbackText: "PhyMaC"
   },
@@ -47,12 +47,12 @@ const CONFIG = {
   // ----------------------------------------------------------------------
   menu: {
     items: [
-      { text: "Inicio", href: "index.html" },
-      { text: "El método", href: "index.html#metodo" },
-      { text: "Proyectos", href: "index.html#proyectos" },
-      { text: "Servicios", href: "servicios.html" },
-      { text: "Blog", href: "blog.html" },
-      { text: "Publicaciones", href: "publicaciones.html" }
+      { text: "Inicio", href: "/" },
+      { text: "El método", href: "/#metodo" },
+      { text: "Proyectos", href: "/#proyectos" },
+      { text: "Servicios", href: "/servicios.html" },
+      { text: "Blog", href: "/blog/" },
+      { text: "Publicaciones", href: "/publicaciones.html" }
     ]
   },
 
@@ -99,7 +99,7 @@ const CONFIG = {
       id: 4,
       title: "¡Acción y reacción en el Rosal!",
       description: "Niños y jóvenes construyendo cohetes propulsados por aire en la Fundación CreSiendo.",
-      image: "imagenes/img1.jpeg",
+      image: "/imagenes/img1.jpeg",
       category: "Estudiantes",
       categoryColor: "cyan-400",
       blogId: 7 // Relacionado con el artículo "¡Acción y reacción en el Rosal!"
@@ -143,7 +143,7 @@ const CONFIG = {
       fullTitle: "La alegoría del mono: un curioso modo de escudriñar el movimiento de proyectiles",
       author: "Prof. Paco H. Talero L.",
       description: "El libro <i>La alegoría del mono: un curioso modo de escudriñar el movimiento de proyectiles</i>, del profesor Paco H. Talero L., presenta un tratamiento alternativo y conceptualmente provocador para entender el movimiento de proyectiles. Con un enfoque inusual, el autor desafía las metodologías tradicionales para centrarse en suscitar reflexiones fundamentalmente conceptuales sobre las ideas físicas subyacentes.",
-      image: "imagenes/ElMonoCH.png"
+      image: "/imagenes/ElMonoCH.png"
     },
     {
       id: 2,
@@ -151,7 +151,7 @@ const CONFIG = {
       fullTitle: "El infinito físico de Zenón: paradoja y sofisma en tres movimientos insólitos",
       author: "Prof. Paco H. Talero L.",
       description: "El libro <i>El infinito físico de Zenón: paradoja y sofisma en tres movimientos insólitos</i>, del profesor Paco H. Talero L., es una invitación desde PhyMaC a explorar las paradojas del movimiento asociadas con el infinito según Zenón. A través de rebotes, particiones y desplazamientos matemáticamente infinitos que se revelan finitos en el mundo físico, el autor propone al lector un disonante juego intelectual que lo lleva del infinito matemático al mundo concreto de problemas físicos concretos.",
-      image: "imagenes/Ch_Libro_Verde.png"
+      image: "/imagenes/Ch_Libro_Verde.png"
     }
   ],
 

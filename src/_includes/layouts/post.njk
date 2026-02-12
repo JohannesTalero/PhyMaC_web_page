@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="{{ site.language | default('es') }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} - PhyMaC</title>
+  <meta name="description" content="{{ summary | default(site.description) }}">
+
+  <!-- Open Graph / SEO -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ summary | default(site.description) }}">
+  <meta property="og:image" content="{{ image | default(site.imageDefault) }}">
+  <meta property="og:url" content="{{ site.url | default('') }}{{ page.url }}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/imagenes/logo.svg">
+  
+  <!-- Google Fonts: Montserrat (Titulos) + Open Sans (Cuerpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tailwind Config PhyMaC -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'phymac': {
+              'white': '#F5F5F5',
+              'blue': '#2962FF',
+              'blue-dark': '#0039CB',
+              'blue-light': '#768FFF',
+              'orange': '#FF6D00',
+              'orange-dark': '#C43E00',
+              'orange-light': '#FF9E40',
+              'carbon': '#212121',
+              'carbon-light': '#484848',
+            }
+          },
+          fontFamily: {
+            'display': ['Montserrat', 'system-ui', 'sans-serif'],
+            'body': ['Open Sans', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Estilos PhyMaC -->
+  <link rel="stylesheet" href="/phymac-styles.css">
+  
+  <!-- Estilos adicionales -->
+  <style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+    
+    .scroll-animate {
+      opacity: 0;
+    }
+
+    /* Patron de fondo electrico */
+    .electric-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* Estilos para el contenido del blog (prose) */
+    .prose {
+      color: #212121;
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.75;
+    }
+    .prose h2,
+    .prose h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #212121;
+    }
+    .prose p {
+      margin-bottom: 1rem;
+    }
+    .prose ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .prose ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .prose li {
+      margin-bottom: 0.5rem;
+    }
+    .prose strong {
+      font-weight: 700;
+      color: #212121;
+    }
+    .prose em {
+      font-style: italic;
+    }
+    .prose a {
+      color: #2962FF;
+      font-weight: 600;
+    }
+    .prose a:hover {
+      color: #FF6D00;
+    }
+
+    /* Line clamp para cards de articulos */
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-phymac-white font-body text-phymac-carbon">
+  
+  <!-- HEADER CONTAINER (se llena dinamicamente) -->
+  <div id="header-container"></div>
+
+  <!-- HERO DEL ARTICULO -->
+  <section class="relative pt-28 pb-16 md:pt-40 md:pb-20 overflow-hidden bg-phymac-blue text-white text-center">
+    <div class="absolute inset-0 electric-pattern"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-phymac-blue/80 via-phymac-blue to-phymac-blue-dark"></div>
+    
+    <div class="max-w-3xl mx-auto px-4 relative z-10 scroll-animate">
+      <p class="text-sm uppercase tracking-[0.2em] mb-3 font-display text-white/80">
+        Articulo del Blog
+      </p>
+      <h1 class="font-display text-3xl md:text-4xl font-extrabold tracking-tight leading-tight mb-4 text-white">
+        {{ title }}
+      </h1>
+      {% if summary %}
+      <p class="mt-2 text-base md:text-lg text-white/90 leading-relaxed font-body">
+        {{ summary }}
+      </p>
+      {% endif %}
+      <div class="mt-6 flex flex-wrap gap-3 justify-center text-sm font-body text-white/80">
+        {% if author %}
+          <span>Por {{ author }}</span>
+        {% endif %}
+        {% if date %}
+          <span>•</span>
+          <span>{{ date }}</span>
+        {% endif %}
+        {% if category %}
+          <span>•</span>
+          <span class="px-3 py-1 rounded-full font-display font-bold text-xs" style="background-color: #E8EAF6; color: #2962FF;">
+            {{ category }}
+          </span>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENIDO DEL ARTICULO -->
+  <main class="py-16 bg-phymac-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <article class="bg-white rounded-2xl p-6 md:p-10 border-2 border-gray-200 scroll-animate">
+        {% if image %}
+        <div class="mb-8">
+          <img src="{{ image }}" alt="{{ title }}" class="w-full h-64 object-cover rounded-xl mb-4">
+        </div>
+        {% endif %}
+
+        <div class="prose max-w-none">
+          {{ content | safe }}
+        </div>
+
+        <!-- Seccion de mas articulos -->
+        <div class="mt-10 pt-6 border-t border-gray-200">
+          <h2 class="font-display text-xl font-extrabold mb-6">Más artículos</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {% set count = 0 %}
+            {% for other in collections.posts %}
+              {% if other.url != page.url and count < 3 %}
+                {% set count = count + 1 %}
+                <a href="{{ other.url }}" class="group block rounded-xl border-2 border-gray-200 overflow-hidden hover:border-phymac-blue hover:shadow-lg transition-all duration-300">
+                  {% if other.data.image %}
+                  <div class="relative h-36 overflow-hidden">
+                    <img src="{{ other.data.image }}" alt="{{ other.data.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    {% if other.data.category %}
+                    <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full font-display font-bold text-[10px] uppercase tracking-wider" style="background-color: #E8EAF6; color: #2962FF;">
+                      {{ other.data.category }}
+                    </span>
+                    {% endif %}
+                  </div>
+                  {% endif %}
+                  <div class="p-4">
+                    <h3 class="font-display text-sm font-extrabold text-phymac-carbon leading-snug group-hover:text-phymac-blue transition-colors duration-200 line-clamp-2">
+                      {{ other.data.title }}
+                    </h3>
+                    {% if other.data.summary %}
+                    <p class="mt-2 text-xs font-body text-gray-500 leading-relaxed line-clamp-2">
+                      {{ other.data.summary }}
+                    </p>
+                    {% endif %}
+                  </div>
+                </a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="mt-10 pt-6 border-t border-gray-200 text-center">
+          {% cta_whatsapp "Me interesa saber mas sobre: " + title %}
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- FOOTER CONTAINER (se llena dinamicamente) -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="/config.js"></script>
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="/main.js"></script>
+</body>
+</html>
+
