@@ -164,6 +164,63 @@ const BLOG_POSTS = [
       <h3>¿Listo para llevar el enfoque Maker a tu comunidad?</h3>
       <p>¿Te gustaría que PhyMaC diseñe un reto STEM a la medida para tu institución o grupo? Conversemos sobre cómo transformar la teoría en artefactos tangibles.</p>
     `
+  },
+  {
+    id: 8,
+    title: "Ciencia con Sello de Mujer: Perspectivas y desafíos en la tecnología",
+    slug: "ciencia-sello-mujer-perspectivas-desafios-tecnologia",
+    date: "2026-02-11",
+    author: "Equipo PhyMaC",
+    category: "Otros",
+    image: "https://img.youtube.com/vi/pIY0BgIwMIk/maxresdefault.jpg",
+    summary: "En el Día Internacional de la Mujer y la Niña en la Ciencia, compartimos las experiencias de mujeres líderes que están transformando el panorama científico en Colombia.",
+    content: `
+      <p>En PhyMaC celebramos la ciencia que nace de la curiosidad y se fortalece con la persistencia. En el marco del <em>Día Internacional de la Mujer y la Niña en la Ciencia</em>, compartimos las experiencias de mujeres líderes que están transformando el panorama científico en Colombia.</p>
+
+      <h3>El mensaje: "Este camino también es de ustedes"</h3>
+      <p>Las protagonistas coinciden en que las brechas de género se derrotan con acciones concretas. Sus consejos para las niñas que sienten interés por la física, la química o la biología son directos:</p>
+      <ol>
+        <li><strong>Persiste:</strong> La ciencia nace de la curiosidad con la que se convive toda la vida.</li>
+        <li><strong>Arriésgate:</strong> No pasa nada si se falla o se pierde una materia; lo importante es ser disciplinada.</li>
+        <li><strong>Tu voz cuenta:</strong> Las opiniones y perspectivas femeninas son válidas y necesarias para el avance del conocimiento.</li>
+      </ol>
+
+      <h3>Perspectivas en video</h3>
+      <p>Te invitamos a conocer estas historias de viva voz y a descubrir por qué "sí se puede" hacer carrera en las ciencias básicas e ingeniería:</p>
+
+      <div style="text-align: center; margin: 2rem 0;">
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+          <iframe 
+            src="https://www.youtube.com/embed/pIY0BgIwMIk" 
+            title="Perspectivas y desafíos en la tecnología - Completo"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+          </iframe>
+        </div>
+        <p style="font-size: 0.9rem; color: #666; margin-top: 0.75rem; font-style: italic;">Perspectivas y desafíos en la tecnología — Video completo</p>
+      </div>
+
+      <div style="text-align: center; margin: 2rem auto;">
+        <div style="position: relative; padding-bottom: 177.78%; height: 0; overflow: hidden; max-width: 360px; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+          <iframe 
+            src="https://www.youtube.com/embed/u_IN1UNdhNI" 
+            title="Testimonio Mari Verdugo - Short"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+          </iframe>
+        </div>
+        <p style="font-size: 0.9rem; color: #666; margin-top: 0.75rem; font-style: italic;">Testimonio Mari Verdugo — Short</p>
+      </div>
+
+      <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+      <p><em>¿Buscas fomentar el liderazgo femenino en STEM?</em><br>
+      En PhyMaC diseñamos experiencias educativas para inspirar a las próximas generaciones de científicas. ¿Te gustaría conocer más sobre nuestros proyectos? ¡Hablemos!</p>
+    `
   }
 ];
 
